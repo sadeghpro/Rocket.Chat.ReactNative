@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 import PropTypes from 'prop-types';
 import { Q } from '@nozbe/watermelondb';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import isEqual from 'lodash/isEqual';
 
 import styles from './styles';
@@ -274,7 +274,7 @@ class List extends React.Component {
 				if (tmid) {
 					await RocketChat.loadThreadMessages({ tmid, rid, offset: messages.length - 1 });
 				} else {
-					await RocketChat.loadMissedMessages({ rid, lastOpen: moment().subtract(7, 'days').toDate() });
+					await RocketChat.loadMissedMessages({ rid, lastOpen: moment().locale('fa').subtract(7, 'days').toDate() });
 				}
 			} catch (e) {
 				log(e);

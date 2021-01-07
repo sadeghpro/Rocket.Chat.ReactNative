@@ -63,6 +63,7 @@
     "expo-web-browser": "8.3.1",
     "hoist-non-react-statics": "3.3.2",
     "i18n-js": "3.7.1",
+    "jalali-moment": "^3.3.9",
     "js-base64": "2.5.2",
     "js-sha256": "^0.9.0",
     "lodash": "4.17.20",

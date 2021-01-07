@@ -4,7 +4,7 @@ import { Text, View, InteractionManager } from 'react-native';
 import { connect } from 'react-redux';
 
 import { sanitizedRaw } from '@nozbe/watermelondb/RawRecord';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import * as Haptics from 'expo-haptics';
 import { Q } from '@nozbe/watermelondb';
 import isEqual from 'lodash/isEqual';
@@ -883,12 +883,12 @@ class RoomView extends React.Component {
 
 		if (!previousItem) {
 			dateSeparator = item.ts;
-			showUnreadSeparator = moment(item.ts).isAfter(lastOpen);
+			showUnreadSeparator = moment(item.ts).locale('fa').isAfter(lastOpen);
 		} else {
 			showUnreadSeparator = lastOpen
-				&& moment(item.ts).isSameOrAfter(lastOpen)
-				&& moment(previousItem.ts).isBefore(lastOpen);
-			if (!moment(item.ts).isSame(previousItem.ts, 'day')) {
+				&& moment(item.ts).locale('fa').isSameOrAfter(lastOpen)
+				&& moment(previousItem.ts).locale('fa').isBefore(lastOpen);
+			if (!moment(item.ts).locale('fa').isSame(previousItem.ts, 'day')) {
 				dateSeparator = item.ts;
 			}
 		}

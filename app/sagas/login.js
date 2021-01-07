@@ -2,7 +2,7 @@ import {
 	put, call, takeLatest, select, take, fork, cancel, race, delay
 } from 'redux-saga/effects';
 import { sanitizedRaw } from '@nozbe/watermelondb/RawRecord';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import 'moment/min/locales';
 import { Q } from '@nozbe/watermelondb';
 import { I18nManager } from 'react-native';

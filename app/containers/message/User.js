@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
 	View, Text, StyleSheet, TouchableOpacity
 } from 'react-native';
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 import { themes } from '../../constants/colors';
 import { withTheme } from '../../theme';
@@ -51,7 +51,7 @@ const User = React.memo(({
 		const { user } = useContext(MessageContext);
 		const username = (useRealName && author.name) || author.username;
 		const aliasUsername = alias ? (<Text style={[styles.alias, { color: themes[theme].auxiliaryText }]}> @{username}</Text>) : null;
-		const time = moment(ts).format(timeFormat);
+		const time = moment(ts).locale('fa').format(timeFormat);
 		const onUserPress = () => navToRoomInfo(navParam);
 		const isDisabled = author._id === user.id;
 

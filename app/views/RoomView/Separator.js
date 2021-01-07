@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 import I18n from '../../i18n';
 import sharedStyles from '../Styles';
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 });
 
 const DateSeparator = React.memo(({ ts, unread, theme }) => {
-	const date = ts ? moment(ts).format('LL') : null;
+	const date = ts ? moment(ts).locale('fa').format('LL') : null;
 	const unreadLine = { backgroundColor: themes[theme].dangerColor };
 	const unreadText = { color: themes[theme].dangerColor };
 	if (ts && unread) {

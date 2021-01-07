@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Share, ScrollView } from 'react-native';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import { connect } from 'react-redux';
 
 import {
@@ -77,10 +77,10 @@ class InviteUsersView extends React.Component {
 
 			if (invite.maxUses) {
 				const usesLeft = invite.maxUses - invite.uses;
-				return I18n.t('Your_invite_link_will_expire_on__date__or_after__usesLeft__uses', { date: moment(expiration).format(timeDateFormat), usesLeft });
+				return I18n.t('Your_invite_link_will_expire_on__date__or_after__usesLeft__uses', { date: moment(expiration).locale('fa').format(timeDateFormat), usesLeft });
 			}
 
-			return I18n.t('Your_invite_link_will_expire_on__date__', { date: moment(expiration).format(timeDateFormat) });
+			return I18n.t('Your_invite_link_will_expire_on__date__', { date: moment(expiration).locale('fa').format(timeDateFormat) });
 		}
 
 		if (invite.maxUses) {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, View, Text } from 'react-native';
 import equal from 'deep-equal';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import { connect } from 'react-redux';
 
 import Avatar from '../../containers/Avatar';
@@ -94,7 +94,7 @@ class ReadReceiptView extends React.Component {
 
 	renderItem = ({ item }) => {
 		const { Message_TimeFormat, theme } = this.props;
-		const time = moment(item.ts).format(Message_TimeFormat);
+		const time = moment(item.ts).locale('fa').format(Message_TimeFormat);
 		if (!item?.user?.username) {
 			return null;
 		}

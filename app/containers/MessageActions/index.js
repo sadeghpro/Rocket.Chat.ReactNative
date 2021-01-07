@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Clipboard, Share } from 'react-native';
 import { connect } from 'react-redux';
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 import RocketChat from '../../lib/rocketchat';
 import database from '../../lib/database';
@@ -69,11 +69,11 @@ const MessageActions = React.memo(forwardRef(({
 		if (blockEditInMinutes) {
 			let msgTs;
 			if (message.ts != null) {
-				msgTs = moment(message.ts);
+				msgTs = moment(message.ts).locale('fa');
 			}
 			let currentTsDiff;
 			if (msgTs != null) {
-				currentTsDiff = moment().diff(msgTs, 'minutes');
+				currentTsDiff = moment().locale('fa').diff(msgTs, 'minutes');
 			}
 			return currentTsDiff < blockEditInMinutes;
 		}
@@ -100,11 +100,11 @@ const MessageActions = React.memo(forwardRef(({
 		if (blockDeleteInMinutes != null && blockDeleteInMinutes !== 0) {
 			let msgTs;
 			if (message.ts != null) {
-				msgTs = moment(message.ts);
+				msgTs = moment(message.ts).locale('fa');
 			}
 			let currentTsDiff;
 			if (msgTs != null) {
-				currentTsDiff = moment().diff(msgTs, 'minutes');
+				currentTsDiff = moment().locale('fa').diff(msgTs, 'minutes');
 			}
 			return currentTsDiff < blockDeleteInMinutes;
 		}

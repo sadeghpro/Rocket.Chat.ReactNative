@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 import parseUrls from './parseUrls';
 
@@ -9,7 +9,7 @@ function normalizeAttachments(msg) {
 	msg.attachments = msg.attachments.map((att) => {
 		att.fields = att.fields || [];
 		if (att.ts) {
-			att.ts = moment(att.ts).toDate();
+			att.ts = moment(att.ts).locale('fa').toDate();
 		}
 		att = normalizeAttachments(att);
 		return att;

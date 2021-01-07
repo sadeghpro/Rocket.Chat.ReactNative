@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import equal from 'deep-equal';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-const formatTime = seconds => moment.utc(seconds * 1000).format('mm:ss');
+const formatTime = seconds => moment.locale('fa').utc(seconds * 1000).format('mm:ss');
 const BUTTON_HIT_SLOP = {
 	top: 12, right: 12, bottom: 12, left: 12
 };

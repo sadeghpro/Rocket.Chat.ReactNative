@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import moment from 'moment';
+import moment from 'jalali-moment';
 
 import I18n from '../../i18n';
 import Item from './Item';
@@ -9,7 +9,7 @@ import Item from './Item';
 const Timezone = ({ utcOffset, Message_TimeFormat, theme }) => (utcOffset ? (
 	<Item
 		label={I18n.t('Timezone')}
-		content={`${ moment().utcOffset(utcOffset).format(Message_TimeFormat) } (UTC ${ utcOffset })`}
+		content={`${ moment().locale('fa').utcOffset(utcOffset).format(Message_TimeFormat) } (UTC ${ utcOffset })`}
 		theme={theme}
 	/>
 ) : null);

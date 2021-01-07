@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
@@ -49,7 +49,7 @@ const ReplyPreview = React.memo(({
 		return null;
 	}
 
-	const time = moment(message.ts).format(Message_TimeFormat);
+	const time = moment(message.ts).locale('fa').format(Message_TimeFormat);
 	return (
 		<View
 			style={[

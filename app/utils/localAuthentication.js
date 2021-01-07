@@ -1,5 +1,5 @@
 import * as LocalAuthentication from 'expo-local-authentication';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import RNBootSplash from 'react-native-bootsplash';
 import AsyncStorage from '@react-native-community/async-storage';
 import { sha256 } from 'js-sha256';
@@ -114,7 +114,7 @@ export const localAuthenticate = async(server) => {
 		// `checkHasPasscode` results newPasscode = true if a passcode has been set
 		if (!result?.newPasscode) {
 			// diff to last authenticated session
-			const diffToLastSession = moment().diff(serverRecord?.lastLocalAuthenticatedSession, 'seconds');
+			const diffToLastSession = moment().locale('fa').diff(serverRecord?.lastLocalAuthenticatedSession, 'seconds');
 
 			// if last authenticated session is older than configured auto lock time, authentication is required
 			if (diffToLastSession >= serverRecord?.autoLockTime) {
