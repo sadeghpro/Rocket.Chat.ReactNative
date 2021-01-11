@@ -62,14 +62,14 @@ const Header = React.memo(({
 	} else if (!connected) {
 		subtitle = I18n.t('Waiting_for_network');
 	} else {
-		subtitle = server?.replace(/(^\w+:|^)\/\//, '');
+		subtitle = I18n.t('Online');
 	}
 	return (
 		<View style={styles.container}>
 			<View style={styles.button}>
 				<Text style={[styles.title, isFetching && styles.serverSmall, titleColorStyle, { fontSize: titleFontSize }]} numberOfLines={1}>{serverName}</Text>
 			</View>
-			{subtitle ? <Text style={[styles.subtitle, { color: themes[theme].auxiliaryText, fontSize: subTitleFontSize }]} numberOfLines={1}>{subtitle}</Text> : null}
+			{subtitle ? <Text style={[styles.subtitle, { color: themes[theme].tintColor, fontSize: subTitleFontSize }]} numberOfLines={1}>{subtitle}</Text> : null}
 		</View>
 	);
 });
