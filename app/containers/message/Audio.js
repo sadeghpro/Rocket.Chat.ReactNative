@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-const formatTime = seconds => moment.locale('fa').utc(seconds * 1000).format('mm:ss');
+const formatTime = seconds => moment.utc(seconds * 1000).format('mm:ss');
 const BUTTON_HIT_SLOP = {
 	top: 12, right: 12, bottom: 12, left: 12
 };
