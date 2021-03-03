@@ -213,24 +213,6 @@ class SettingsView extends React.Component {
 							testID='settings-view-language'
 						/>
 						<List.Separator />
-						{!isFDroidBuild ? (
-							<>
-								<List.Item
-									title='Review_this_app'
-									showActionIndicator
-									onPress={onReviewPress}
-									testID='settings-view-review-app'
-								/>
-							</>
-						) : null}
-						<List.Separator />
-						<List.Item
-							title='Share_this_app'
-							showActionIndicator
-							onPress={this.shareApp}
-							testID='settings-view-share-app'
-						/>
-						<List.Separator />
 						<List.Item
 							title='Default_browser'
 							showActionIndicator
@@ -257,26 +239,10 @@ class SettingsView extends React.Component {
 					<List.Section>
 						<List.Separator />
 						<List.Item
-							title='License'
-							onPress={this.onPressLicense}
-							showActionIndicator
-							testID='settings-view-license'
-						/>
-						<List.Separator />
-						<List.Item
 							title={I18n.t('Version_no', { version: getReadableVersion })}
 							onPress={this.copyAppVersion}
 							testID='settings-view-version'
 							translateTitle={false}
-						/>
-						<List.Separator />
-						<List.Item
-							title={I18n.t('Server_version', { version: server.version })}
-							onPress={this.copyServerVersion}
-							subtitle={`${ server.server.split('//')[1] }`}
-							testID='settings-view-server-version'
-							translateTitle={false}
-							translateSubtitle={false}
 						/>
 						<List.Separator />
 					</List.Section>

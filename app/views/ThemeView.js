@@ -125,12 +125,6 @@ class ThemeView extends React.Component {
 							themeGroup.map(item => this.renderItem({ item }))
 						}
 					</List.Section>
-					<List.Section title='Dark_level'>
-						<List.Separator />
-						{
-							darkGroup.map(item => this.renderItem({ item }))
-						}
-					</List.Section>
 				</List.Container>
 			</SafeAreaView>
 		);
